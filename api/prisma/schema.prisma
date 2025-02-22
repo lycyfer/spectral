@@ -1,0 +1,97 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  username  String   @unique
+  password  String
+  role      String
+  email     String   @unique
+  fullName  String
+  phone     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Hall {
+  id                    String     @id @default(auto()) @map("_id") @db.ObjectId
+  name                  String     @unique
+  capacity              Int
+  maxCapacity           Int
+  price                 Float
+  description           String
+  available             Boolean    @default(true)
+  createdAt             DateTime   @default(now())
+  updatedAt             DateTime   @updatedAt
+  imageUrls             String[]
+  hallType              String
+  equipment             String[]
+  location              String
+  floor                 Int
+  companyName           String
+  companyId             String
+  bookings              Booking[]
+  isBooked              Boolean    @default(false)
+  eventType             String[]
+  availableDates        DateTime[]
+  minBookingDuration    Int
+  maxBookingDuration    Int
+  additionalServices    String[]
+  usageRules            String
+  rating                Float
+  reviewCount           Int
+  interiorPhotos        String[]
+  contactInfo           String
+  cancellationPolicy    String
+  accessibleForDisabled Boolean
+  parkingAvailable      Boolean
+  wifiAvailable         Boolean
+  kitchenAvailable      Boolean
+  smokingArea           Boolean
+  additionalFees        Float
+  preparationTime       Int
+  cleaningTime          Int
+  childFriendly         Boolean
+}
+
+model Request {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  clientId  String
+  hallId    String
+  date      DateTime
+  status    String
+  details   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Log {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  adminId    String   @db.ObjectId
+  action     String
+  requestId  String
+  oldStratus String
+  newStatus  String
+  timestamp  DateTime @default(now())
+}
+
+model Booking {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  hallId     String   @db.ObjectId
+  hall       Hall     @relation(fields: [hallId], references: [id])
+  startTime  DateTime
+  endTime    DateTime
+  fullName   String
+  email      String
+  phone      String
+  guestCount Int
+  message    String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}

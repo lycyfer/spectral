@@ -1,0 +1,117 @@
+$background-color: #1c1d21;
+$text-color: #dbe6ff;
+$button-background-color: #604eb4;
+
+.register {
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    .login-header {
+        display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+        .login-header-left {
+            display: flex;
+            align-items: end;
+      
+            .login-header-left-icon {
+              margin-right: 10px;
+            }
+      
+            .login-header-left-title {
+              font-size: 24px;
+              font-family: "Poppins", serif;
+              font-weight: bold;
+              line-height: 1;
+            }
+        }
+        .login-header-right {
+            display: flex;
+            justify-content: center;
+            border-radius: 50%;
+            align-items: center;
+            padding: 15px;
+            background-color: rgb(16, 17, 19);
+            transition: transform 0.5s ease; // Плавный переход для увеличения
+            // backface-visibility: hidden;
+            will-change: transform;
+            .login-header-right-svg {
+                transform: translateX(15%);
+                transition: fill 0.5s ease; 
+                fill: #fff; 
+            }
+        
+            &:hover {
+                transform: scale(1.1); 
+                transform-origin: center;
+                .login-header-right-svg {
+                    fill: rgb(219, 230, 250); 
+                }
+            }
+        }
+    }
+    .register-form-container {
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        padding: 20px;
+        width: 100%;
+        max-width: 400px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin: 150px auto;
+        h2 {
+          font-size: 24px;
+          font-weight: bold;
+          margin-bottom: 20px;
+          text-align: center;
+        }
+    
+        .register-form {
+          .form-row {
+            margin-bottom: 15px;
+    
+            label {
+              display: block;
+              margin-bottom: 5px;
+              font-size: 14px;
+              font-weight: 500;
+            }
+    
+            input {
+              width: 100%;
+              padding: 10px;
+              border: none;
+              border-radius: 5px;
+              background-color: rgba(255, 255, 255, 0.1);
+              color: $text-color;
+              font-size: 14px;
+    
+              &::placeholder {
+                color: rgba(255, 255, 255, 0.5);
+              }
+            }
+          }
+    
+          .form-actions {
+            display: flex;
+            justify-content: center;
+    
+            .submit-btn {
+              padding: 10px 20px;
+              border: none;
+              border-radius: 5px;
+              background-color: $button-background-color;
+              color: white;
+              font-size: 16px;
+              font-weight: 500;
+              cursor: pointer;
+              transition: background-color 0.3s ease;
+    
+              &:hover {
+                background-color: lighten($button-background-color, 10%);
+              }
+            }
+          }
+        }
+      }
+}

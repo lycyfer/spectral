@@ -1,0 +1,300 @@
+$background-color: #1c1d21;
+$text-color: #dbe6ff;
+$button-background-color: #604eb4;
+$success-color: #4caf50;
+$error-color: #f44336;
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  // background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0s 0.3s ease-in-out;
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .modal {
+    padding: 20px;
+    border-radius: 8px;
+    width: 900px; // Увеличена ширина модального окна
+    min-height: 400px;
+    max-height: 80vh;
+    text-align: center;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .modal-title {
+        color: $text-color;
+      }
+    }
+    .notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: 500;
+      z-index: 1002;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+
+      &.notification-success {
+        background-color: $success-color;
+        color: #fff;
+      }
+      &.notification-error {
+        background-color: $error-color;
+        color: #fff;
+      }
+
+    }
+
+    .modal-content {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+
+      .booking-form-container {
+        // width: 45%; 
+        margin-right: 20px;
+        width: 520px;
+        .booking-form {
+          background-color: rgb(16, 17, 19);
+          padding: 20px;
+          border-radius: 10px;
+
+          .form-row {
+            margin-bottom: 15px;
+
+            label {
+              display: block;
+              margin-bottom: 5px;
+              text-align: left;
+              font-size: 18px;
+              font-weight: 300;
+              color: #fff;
+            }
+
+            input,
+            select,
+            textarea {
+              width: 100%;
+              padding: 8px;
+              border-radius: 5px;
+              border: 1px solid #ccc;
+              background-color: rgb(16, 17, 19);
+              color: $text-color;
+            }
+
+            &.form-row-flex {
+              display: flex;
+              gap: 10px;
+              justify-content: space-between;
+              align-items: center;
+              input {
+                width: calc(50% - 5px);
+              }
+              .form-column {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              width: 250px;
+              
+                input {
+                  width: 110px;
+                }
+                input[type="date"] {
+                  position: relative;
+                  padding-right: 25px; // Добавляем место для иконки
+                  background-color: #1c1d21; // Цвет фона инпута
+                  color: #dbe6ff; // Цвет текста
+                  border: none;
+                  border-radius: 5px;
+                  appearance: none;
+
+                  &::-webkit-calendar-picker-indicator {
+                    position: absolute;
+                    right: 5px; 
+                    top: 50%;
+                    transform: translateY(-50%); 
+                    // opacity: 0.7; 
+                    filter: invert(1); 
+                    cursor: pointer;
+                  }
+                }
+                input[type="time"] {
+                  position: relative;
+                  width: 80px;
+                  padding-right: 25px; // Добавляем место для иконки
+                  background-color: #1c1d21; // Цвет фона инпута
+                  color: #dbe6ff; // Цвет текста
+                  border: none;
+                  border-radius: 5px;
+                  appearance: none;
+
+                  &::-webkit-calendar-picker-indicator {
+                    position: absolute;
+                    right: 0px; 
+                    top: 50%;
+                    transform: translateY(-50%); 
+                    // opacity: 0.7; 
+                    filter: invert(1); 
+                    cursor: pointer;
+                  }
+                }
+              }
+            }
+
+            textarea {
+              resize: vertical;
+              min-height: 100px;
+            }
+          }
+
+          .form-actions {
+            display: flex;
+            // justify-content: space-between;
+            gap: 5px;
+            
+            button {
+              padding: 10px 20px;
+              border: none;
+              border-radius: 5px;
+              width: 240px;
+              cursor: pointer;
+              transition: all 0.4s ease-in-out;
+              &[type="submit"] {
+                background-color: $button-background-color;
+                color: white;
+
+                &:hover {
+                  scale: 0.95;
+                }
+              }
+
+              &[type="reset"] {
+                background-color: $button-background-color;
+                color: white;
+
+                &:hover {
+                  scale: 0.95;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .calendar-container {
+        // width: 50%; 
+        display: flex;
+        flex-direction: column;
+        // align-items: center;
+        // justify-content: center;
+
+          .time-selection {
+            margin-top: 10px;
+
+            h3 {
+              margin-bottom: 10px;
+              text-align: left;
+              color: $text-color;
+            }
+
+            .time-buttons {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 5px;
+
+              .time-btn {
+                padding: 10px 20px;
+                border: 1px solid $button-background-color;
+                border-radius: 5px;
+                background-color: white;
+                color: $button-background-color;
+                cursor: pointer;
+                transition: background-color 0.3s ease, color 0.3s ease;
+
+                &:hover {
+                  background-color: $button-background-color;
+                  color: white;
+                }
+
+                &.selected {
+                  background-color: $button-background-color;
+                  color: white;
+                }
+              }
+            
+          }
+
+
+        }
+        .availability-check {
+          margin-top: 20px;
+
+          .check-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: $button-background-color;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+              background-color: lighten($button-background-color, 10%);
+            }
+          }
+
+          p {
+            margin-top: 10px;
+            color: $button-background-color;
+          }
+        }
+      }
+    }
+
+    .close-btn {
+      float: right;
+      font-size: 25px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+      line-height: 1;
+      color: $text-color;
+
+      &:hover {
+        color: white;
+      }
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: 1.5em;
+      color: #604eb4;
+    }
+  }
+}

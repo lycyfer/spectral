@@ -1,0 +1,342 @@
+$background-color: #1c1d21;
+$text-color: #dbe6ff;
+$button-background-color: #604eb4;
+
+.single-hall {
+  .single-hall-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .hall-header-left {
+      display: flex;
+      align-items: end;
+
+      .hall-header-left-icon {
+        margin-right: 10px;
+      }
+
+      .hall-header-left-title {
+        font-size: 24px;
+        font-family: "Poppins", serif;
+        font-weight: bold;
+        line-height: 1;
+      }
+    }
+  }
+
+  .single-hall-booking {
+    margin-top: 100px;
+
+    .single-hall-booking-header {
+      display: flex;
+      flex-direction: column;
+
+      .single-hall-booking-title-btn {
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .single-hall-booking-title {
+          display: block;
+          padding: 0;
+          font-size: 28px;
+          font-weight: 700;
+          padding-bottom: 20px;
+          font-family: "Open Sans", serif;
+          font-weight: 600;
+          padding: 5px;
+          background-color: $button-background-color;
+          border-radius: 10px;
+          max-width: 350px;
+        }
+
+        .booking-btn {
+          border-radius: 10px;
+          margin-right: 10px;
+          padding: 15px;
+          font-size: 16px;
+          color: #fff;
+          background-color: #333437;
+          border: none;
+          transition: transform 0.3s ease;
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &:hover {
+            transform: scale(1.07);
+          }
+        }
+      }
+
+      .single-hall-booking-rating {
+        display: flex;
+        align-items: center;
+        padding-bottom: 15px;
+
+        .rating {
+          display: flex;
+          align-items: center;
+          margin-right: 10px;
+
+          .star {
+            margin-right: 5px;
+          }
+
+          .rating-title {
+            font-size: 16px;
+            font-family: "Open Sans", serif;
+            font-weight: 500;
+            line-height: 1.5;
+            color: rgba(195, 197, 202, 0.904);
+          }
+        }
+
+        .single-hall-booking-subtitle {
+          font-size: 16px;
+          font-family: "Open Sans", serif;
+          font-weight: 500;
+          line-height: 1.5;
+          color: #333437;
+        }
+      }
+    }
+
+    .single-hall-booking-main {
+      display: flex;
+
+      .single-hall-booking-left {
+        margin-right: 30px;
+
+        .hall-booking-left-img {
+          display: flex;
+
+          .booking-left-img-main {
+            .main-img {
+              width: 400px;
+              height: 400px;
+              object-fit: cover;
+              border-radius: 10px;
+              margin-right: 10px;
+            }
+          }
+
+          .booking-left-img-second {
+            .right-img {
+              width: 125px;
+              height: 125px;
+              border-radius: 10px;
+              object-fit: cover;
+              margin-bottom: 8px;
+            }
+          }
+        }
+      }
+
+      .single-hall-booking-right {
+        .hall-booking-equipment {
+          margin-bottom: 15px;
+
+          .equipment-title {
+            font-size: 18px;
+            font-family: "Open Sans", serif;
+            text-align: left;
+            padding-bottom: 10px;
+          }
+
+          .test1 {
+            display: flex;
+            flex-direction: row;
+
+            .equipment-desc {
+              display: block;
+              padding: 5px;
+              background-color: $button-background-color;
+              border-radius: 5px;
+              margin-right: 5px;
+            }
+          }
+        }
+        .hall-booking-floor-capacity {
+          display: flex;
+          flex-direction: column;
+          .hall-booking-floor {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            margin-right: 10px;
+            .floor-desc {
+              display: block;
+              padding: 5px;
+              background-color: $button-background-color;
+              border-radius: 5px;
+              margin-left: 5px;
+            }
+          }
+          .hall-booking-capacity {
+            display: flex;
+            align-items: center;
+            .capacity-desc {
+              display: block;
+              padding: 5px;
+              background-color: $button-background-color;
+              border-radius: 5px;
+              margin-left: 5px;
+            }
+          }
+        }
+
+
+        .hall-booking-location,
+        
+        .hall-booking-contact,
+        .hall-booking-forbidden,
+        .hall-booking-cancellation {
+          display: flex;
+          align-items: center;
+          margin-bottom: 10px;
+          
+          .location-title,
+          .floor-title,
+          .capacity-title,
+          .contact-title,
+          .forbidden-title,
+          .cancellation-title {
+            font-size: 18px;
+            font-family: "Open Sans", serif;
+            text-align: left;
+            padding-right: 5px;
+          }
+
+          .location-desc,
+          .floor-desc,
+          .capacity-desc,
+          .contact-desc {
+            display: block;
+            padding: 5px;
+            background-color: $button-background-color;
+            border-radius: 5px;
+          }
+        }
+
+        .hall-booking-description {
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  .hall-booking-details {
+    width: 100%;
+    padding: 20px;
+    background-color: darken($background-color, 5%);
+    border-radius: 10px;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    transition: height 0.3s ease;
+
+    .booking-details-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .booking-details-header-title {
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      &.expanded {
+        height: auto;
+      }
+
+      .booking-details-btn {
+        background: transparent;
+        color: $text-color;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+
+        svg {
+          path {
+            stroke: $text-color;
+          }
+        }
+      }
+    }
+
+    .booking-form {
+      margin-top: 20px;
+
+      .form-row {
+        margin-bottom: 20px;
+
+        label {
+          display: block;
+          margin-bottom: 8px;
+          font-size: 16px;
+          font-weight: 500;
+        }
+
+        input,
+        select,
+        textarea {
+          width: 100%;
+          padding: 12px;
+          border-radius: 8px;
+          border: 1px solid lighten($background-color, 10%);
+          background-color: lighten($background-color, 5%);
+          color: $text-color;
+          font-size: 16px;
+          transition: border-color 0.3s ease;
+
+          &:focus {
+            border-color: $button-background-color;
+            outline: none;
+          }
+        }
+
+        textarea {
+          resize: vertical;
+          min-height: 100px;
+        }
+      }
+
+      .form-actions {
+        display: flex;
+        justify-content: space-between;
+
+        button {
+          padding: 12px 24px;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          font-size: 16px;
+          transition: background-color 0.3s ease;
+
+          &[type="submit"] {
+            background-color: $button-background-color;
+            color: white;
+
+            &:hover {
+              background-color: lighten($button-background-color, 10%);
+            }
+          }
+
+          &[type="reset"] {
+            background-color: lighten($button-background-color, 10%);
+            color: white;
+
+            &:hover {
+              background-color: lighten($button-background-color, 20%);
+            }
+          }
+        }
+      }
+    }
+  }
+}

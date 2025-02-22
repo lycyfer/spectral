@@ -1,0 +1,117 @@
+.venus {
+    display: flex;
+    justify-content: space-between;
+  
+    .venus-right {
+      margin-right: 20px;
+  
+      .venus-cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+  
+        .venus-cards-block {
+          width: 250px;
+          background-color: #121419;
+          color: #dbe6ff;
+          border-radius: 20px;
+          padding: 15px;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+  
+          .card-img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+          }
+  
+          .card-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: center;
+          }
+  
+          .card-location {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            font-size: 12px;
+  
+            .location-icon {
+              margin-right: 5px;
+            }
+  
+            .location-text {
+              font-size: 12px;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              max-width: 200px;
+            }
+          }
+  
+          .card-info-block {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+  
+            .cards-header-capacity {
+              display: flex;
+              align-items: center;
+              background-color: #1f2635;
+              border-radius: 10px;
+              padding: 5px 10px;
+              font-size: 12px;
+  
+              .capacity-icon {
+                margin-right: 5px;
+              }
+  
+              .capacity-counter {
+                font-size: 12px;
+              }
+            }
+  
+            .ladder {
+              background-color: #1f2635;
+              border-radius: 10px;
+              padding: 5px 10px;
+              font-size: 12px;
+            }
+          }
+  
+          .card-price {
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: center;
+          }
+  
+          .booking-btn {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #604eb4;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-family: "Poppins", serif;
+            font-size: 14px;
+            cursor: pointer;
+            &:hover {
+              background-color: #4a3c8f;
+            }
+          }
+        }
+      }
+    }
+  
+    .venus-left {
+      width: 600px;
+      background-color: #fff;
+    }
+  }
